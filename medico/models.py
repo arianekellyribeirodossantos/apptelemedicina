@@ -25,9 +25,20 @@ class DadosMedico(models.Model):
     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     especialidade = models.ForeignKey(Especialidades, on_delete=models.DO_NOTHING)
 
+    def __str__(self):
+      return self.user.username
+    
+class DatasAbertas(models.Model):
+    data = models.DateTimeField()
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    agendado = models.BooleanField(default=False)
 
-def __str__(self):
-    return self.user.username
+    def __str__(self):
+        return str(self.data)
+
+
+
+
 
 
 
